@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Lista</title> 
+        <meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<link rel="stylesheet" type="text/css" href="main.css">       
+    </head>
+    <body>
+
+        <div class="container">
+         <div class="container-login">
+             <div class='wrap-login'>
+                        <form action="/novoItem" method="POST" class="login-form">
+                            <span class="login-form-title">
+                                Minha Lista
+                            </span>
+
+                            <div class="wrap-input margin-top-35 margin-bottom-35">
+                                <input type="nomeItem" name="nomeItem" id='nomeItem'/>
+                            </div>
+                            <div class="container-login-form-btn">
+                                        <button class="login-form-btn">
+                                            Adicionar
+                                        </button>
+                            </div>
+                        </form>
+
+                        <div class="margin-top-35 margin-bottom-35">                        
+                            <ul id="myList">    
+                            </ul>
+                        </div>
+                </div>
+            </div>
+        </div>
+
+
+    <script type="text/javascript">
+        
+        var ul = document.getElementById("myList");
+        var li;
+        var itemId;
+        var item;
+        addTask	= function (){
+            
+            if(document.getElementById("task").value != ""){
+
+                item   = document.getElementById("task");
+
+                itemId = ul.childElementCount;
+
+                li 	   = createItemEl(item.value,itemId);
+                li.appendChild(createRemoveTaskBtn(itemId));
+                ul.appendChild(li);
+                item.value = "";
+            }
+
+        }
+
+        removeTask = function( itemId ){
+
+            for( i = 0 ; i < ul.children.length ; i++){
+
+                if(ul.children[i].getAttribute("index") == itemId ){
+
+                    ul.children[i].remove();
+
+                }
+            }
+        }
+        createItemEl = function(itemValue, itemId){
+
+            let li = document.createElement("li");
+
+            li.setAttribute("index", itemId);
+
+            li.appendChild(document.createTextNode(itemValue));
+
+            return li;
+        }
+        
+        createRemoveTaskBtn = function(itemId){
+            let btn =  document.createElement("button");
+            btn.setAttribute("onclick", "removeTask("+itemId+")"); 
+            btn.innerHTML ="    X";
+            return btn;
+        }        
+    </script>
+
+    </body>
+</html>
