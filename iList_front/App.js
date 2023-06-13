@@ -47,16 +47,21 @@ app.post('/entrar', function(req, res){
 
 //Itens
 app.get('/lista', function(req, res){
-    res.render('lista')
+    const itens = Item.mostrarItens()
+
+    console.log(itens)
+
+    res.render('lista', {
+        itens: itens
+    });
 })
 
 app.post('/novoItem', function(req, res){
     const { nomeItem } = req.body;
 
-console.log(req.body)
+    Item.novoItem(nomeItem)
 
-    res.status(201)
-        .json(Item.novoItem(nomeItem))
+    res.redirect('/lista')
 })
 
 app.get('/verItens', function(req, res){
@@ -64,11 +69,14 @@ app.get('/verItens', function(req, res){
         .json(Item.mostrarItens())
 })
 
-app.delete('/devetarItem', function(req, res){
-    const { id } = req.body;
+app.post('/deletarItem/:id', function(req, res){
+    const { id } = req.params;
 
-    res.status(201)
-        .json(Item.removerItem(id))
+    Item.removerItem(id)
+
+    console.log("id: " + id)
+
+    res.redirect('/lista')
 })
 
 // app.post('/cadastrar', (req, res)=>{
