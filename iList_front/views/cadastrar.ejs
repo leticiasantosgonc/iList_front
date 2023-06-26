@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+  <head>
+        <title>Cadastro</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href= "/public/assets/styles.css" rel="stylesheet" type="text/css" />
+  </head>
+
+    <body>
+        <div class="container">
+            <div class="container-login">
+                <div class="wrap-login">
+                    <form action="/cadastrar" method="POST" class="login-form">
+                        <span class="login-form-title">
+                            iList
+                        </span>
+                        <span class="login-form-title">
+                            Faça o cadastro
+                        </span>
+                        
+                        <div class="wrap-input margin-top-35 margin-bottom-35">
+                            <input class="input-form" type="text" name="nome" autocomplete="off">
+                            <span class="focus-input-form" data-placeholder="Nome"></span>
+                        </div>
+
+                        <div class="wrap-input margin-bottom-35">
+                            <input class="input-form" type="text" name="email" autocomplete="off">
+                            <span class="focus-input-form" data-placeholder="E-mail"></span>
+                        </div>
+    
+                        <div class="wrap-input margin-bottom-35">
+                            <input class="input-form" type="password" name="password">
+                            <span class="focus-input-form" data-placeholder="Senha"></span>
+                        </div>
+    
+                        <div class="container-login-form-btn">
+                            <button class="login-form-btn">
+                                Cadastrar-se
+                            </button>
+                        </div>
+    
+                        <ul class="login-utils">
+                            <li>
+                                <span class="text1">
+                                    Já tem conta?
+                                </span>
+    
+                                <a href="/" class="text2">
+                                    Entrar
+                                </a>
+                            </li>
+                        </ul>
+                    </form>
+                </div>
+                <img src="/public/assets/login.png" width="300" height="300" class="margin-left-50" />
+            </div>
+        </div>
+    </body>
+</html>
