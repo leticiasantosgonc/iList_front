@@ -4,11 +4,11 @@ import bodyParser from 'body-parser';
 import Auth from './service/Auth.js'
 import Item from './service/Itens.js'
 
-
 const app = express();
 
 app.use(bodyParser.urlencoded({extended: false}))
 app.use(bodyParser.json())
+app.use('/public', express.static('public'))
 
 app.set('view engine', 'ejs'); 
 
